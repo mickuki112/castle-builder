@@ -86,8 +86,8 @@ module.exports = function(webpackEnv) {
         // package.json
         loader: require.resolve('postcss-loader'),
         options: {
-          //modules:true,//jp
-          //localIdentName:'[name]__[local]__[hash:base64:5]'//jp
+            //modules:true,//jp
+            //localIdentName:'[name]__[local]__[hash:base64:5]'//jp
           // Necessary for external CSS imports to work
           // https://github.com/facebook/create-react-app/issues/2677
           ident: 'postcss',
