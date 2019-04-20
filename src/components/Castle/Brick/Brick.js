@@ -1,5 +1,6 @@
 import React, {Component}from 'react';
 import PropTypes from'prop-types';
+import styles from'./Brick.module.css';
 
 class BrickOfType extends Component {
     render(){
@@ -7,7 +8,10 @@ class BrickOfType extends Component {
 
         switch (this.props.type){
             case('stoneBrick'):
-                typeBrick=(<div>sciana</div>);
+                typeBrick=(<div>W</div>);
+                break;
+            case('add'):
+                typeBrick=(<div className={styles.add} onClick={this.props.added}>+</div>);
                 break;
             default:
                 typeBrick = null;
