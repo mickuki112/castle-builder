@@ -13,9 +13,14 @@ const castle =(props)=>{
         },[]);*/
         const styleVerse={
             display: 'flex',
-            justifyContent: 'space-between',
-            width:'100px',
+            justifyContent: 'center',
+            width:'100%',
+            //margin:'auto',
             textAlign: 'center',
+            fontSize:'100px',
+        }
+        const styleBuilder={
+            height:'70%',
         }
     let transformedComponents = props.components.map((column,i)=>{
             return <div style={styleVerse} key={i}>{column.map((verse,j)=>{
@@ -30,7 +35,7 @@ const castle =(props)=>{
     //    transformedComponents=<BrickOfType type='stoneBrick' />;
     //}
     return(
-        <div>
+        <div style={styleBuilder}>
             {transformedComponents}
         </div>
     );
