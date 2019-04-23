@@ -16,21 +16,20 @@ const castle =(props)=>{
             justifyContent: 'center',
             width:'100%',
             //margin:'auto',
-            textAlign: 'center',
-            fontSize:'100px',
         }
         const styleBuilder={
-            height:'70%',
+            height:'600px',
+            overflow: 'scroll',
         }
     let transformedComponents = props.components.map((column,i)=>{
             return <div style={styleVerse} key={i}>{column.map((verse,j)=>{
                 return <BrickOfType
                     added={()=>props.added(verse,[i,j])}
                     type={verse}
-                    key={verse+j}/>
+                    key={verse+j}
+                    styleComponents={props.styleComponents}/>
             })}</div>
         })
-    console.log(props.components);
     //if(transformedComponents.length===0){
     //    transformedComponents=<BrickOfType type='stoneBrick' />;
     //}

@@ -1,7 +1,13 @@
 .add{
-    height: 100px;
-    width: 100px;
+    height: 80%;
+    width: 80%;
+    margin:auto;
+    border:dashed 2px green;
+    border-radius: 10px;
+    text-align: center;
+    color: green;
 }
+
 .typeBrick{
     height: 100px;
     width: 100px;

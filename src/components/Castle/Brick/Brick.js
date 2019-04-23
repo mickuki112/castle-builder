@@ -10,10 +10,18 @@ class BrickOfType extends Component {
 
         switch (this.props.type){
             case('stoneBrick'):
-                typeBrick=(<div className={styles.typeBrick} onClick={this.props.added}></div>);
+                typeBrick=(
+                    <div
+                    className={styles.typeBrick}
+                    onClick={this.props.added}
+                    style={this.props.styleComponents}></div>);
                 break;
             case('add'):
-                typeBrick=(<div className={styles.add} onClick={this.props.added}>+</div>);
+                typeBrick=(<div
+                    style={this.props.styleComponents}
+                    onClick={this.props.added}>
+                        <div className={styles.add}>+</div>
+                    </div>);
                 break;
             case('none'):
                 typeBrick=(<div className={styles.add}></div>);
