@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
 import Castle from '../../components/Castle/Castle';
+import Modal from '../../components/UI/Modal/Modal';
+import SummaryBrick from '../../components/Castle/SummaryBrick/SummaryBrick';
 
 class Builder extends Component {
     state={
-        /*components1:{
-            stoneBrick:0,
-            stoneBrick1:0,
-            stoneBrick2:0,
-        },*/
+        purchasing:false,
         components:[["add"]],
         buildMode:'deCenter',
+        counterBrick:0,
         styleComponents:{
             height: '100px',
             width: '100px',
@@ -20,6 +19,7 @@ class Builder extends Component {
     }
     addWall=(type,coOrdinates)=>{
         let updateWall=this.state.components;
+        let counterBrick=this.state.counterBrick+1;
             if(type==='add'){
             updateWall[coOrdinates[0]][coOrdinates[1]]='stoneBrick'
             if(!this.state.components[coOrdinates[0]][coOrdinates[1]+1]){
@@ -57,6 +57,7 @@ class Builder extends Component {
             }
         }else{
             updateWall[coOrdinates[0]][coOrdinates[1]]='add';
+            counterBrick=this.state.counterBrick-1;
         }
         let sizeBrick =updateWall.length;
         updateWall.map((_,i)=>{
@@ -64,7 +65,9 @@ class Builder extends Component {
                 sizeBrick=this.state.components[i].length;//make repairs
             }
         });
-        this.setState({components:updateWall,
+        this.setState({
+        counterBrick:counterBrick,
+        components:updateWall,
         styleComponents:{
             height: (100*(1-sizeBrick*0.03))+'px',
             width: (100*(1-sizeBrick*0.03))+'px',
@@ -80,15 +83,26 @@ class Builder extends Component {
             this.setState({buildMode:'deCenter'})
         }
     }
-
-
+    order=()=>{
+        this.setState({purchasing:true})
+    }
+    modalClosed=()=>{
+        this.setState({purchasing:false})
+    }
     render(){
         return(
             <Aux>
+                <Modal show={this.state.purchasing} modalClosed={this.modalClosed}>
+                    <SummaryBrick
+                        counterBrick={this.state.counterBrick}
+                    />
+                </Modal>
+                <p>{this.state.counterBrick}</p>
                 <button onClick={this.buildMode}>build mode {this.state.buildMode}</button>
                 <Castle added={this.addWall}
                 components={this.state.components}
                 styleComponents={this.state.styleComponents}/>
+                <button onClick={this.order}>Order</button>
             </Aux>
         );
     }
