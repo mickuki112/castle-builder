@@ -2,7 +2,6 @@ import React, {Component}from 'react';
 import PropTypes from'prop-types';
 import styles from'./Brick.module.css';
 
-import typeBrickI from'./pictures/stoneBrick0.jpg';
 
 class BrickOfType extends Component {
     render(){
