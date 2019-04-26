@@ -4,8 +4,17 @@ import Logo from '../../Logo/Logo'
 import NavigationItems from '../NavigationItems/NavigationItems'
 const toolbar =(props)=>(
         <header className={styles.Toolbar}>
-            <Logo/>
-            <NavigationItems/>
+            <div className={styles.DrawerToggle} onClick={props.clicked}>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div className={styles.Logo}>
+                <Logo/>
+            </div>
+            <nav className={styles.DesktopOnly}>
+                <NavigationItems/>
+            </nav>
         </header>
 );
 

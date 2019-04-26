@@ -21,3 +21,27 @@
     border-bottom: 4px solid #40a4c8;
     color: #fff;
 }
+@media (min-width:500px){
+    .NavigationItem{
+        margin: 10px 0;
+        height: 100%;
+        display: block;
+        width: auto;
+        align-items:center;
+
+    }
+    .NavigationItem a{
+        color: #8f5c2c;
+        text-decoration: none;
+        width: 100%;
+        padding: 16px 10px;
+        border-bottom:border-box;
+        display: block;
+    }
+    .NavigationItem a:hover,
+    .NavigationItem a:active,
+    .NavigationItem a.active{
+        color: blue;
+    }
+
+}
