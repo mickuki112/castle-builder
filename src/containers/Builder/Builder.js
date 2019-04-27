@@ -3,6 +3,7 @@ import Aux from '../../hoc/Aux';
 import Castle from '../../components/Castle/Castle';
 import Modal from '../../components/UI/Modal/Modal';
 import SummaryBrick from '../../components/Castle/SummaryBrick/SummaryBrick';
+import styles from './Builder.module.css';
 
 class Builder extends Component {
     state={
@@ -70,6 +71,7 @@ class Builder extends Component {
         components:updateWall,
         styleComponents:{
             height: (100*(1-sizeBrick*0.03))+'px',
+            minWidth: (100*(1-sizeBrick*0.03))+'px',
             width: (100*(1-sizeBrick*0.03))+'px',
             fontSize:(80*(1-sizeBrick*0.03))+'px',
             lineHeight: (80*(1-sizeBrick*0.03))+'px'
@@ -97,12 +99,16 @@ class Builder extends Component {
                         counterBrick={this.state.counterBrick}
                     />
                 </Modal>
-                <p>{this.state.counterBrick}</p>
-                <button onClick={this.buildMode}>build mode {this.state.buildMode}</button>
+                <div className={styles.trapeze}>
+                    <button onClick={this.buildMode} className={styles.Button}>build mode: {this.state.buildMode}</button>
+                    <p>the number of brick: {this.state.counterBrick}</p>
+                </div>
                 <Castle added={this.addWall}
                 components={this.state.components}
                 styleComponents={this.state.styleComponents}/>
-                <button onClick={this.order}>Order</button>
+                <div className={styles.ButtonDiv}>
+                    <button className={styles.order}  onClick={this.order}>Order</button>
+                </div>
             </Aux>
         );
     }

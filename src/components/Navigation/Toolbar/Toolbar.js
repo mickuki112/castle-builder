@@ -12,6 +12,7 @@ const toolbar =(props)=>(
             <div className={styles.Logo}>
                 <Logo/>
             </div>
+            <h1>Castle Builder</h1>
             <nav className={styles.DesktopOnly}>
                 <NavigationItems/>
             </nav>

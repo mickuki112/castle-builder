@@ -1,9 +1,9 @@
 .Toolbar{
-    height: 56px;
+    height: 80px;
     width:100%;
     top:0;
     left:0;
-    background-color: #aaa;
+    background-color: #1d1e22;
     display:flex;
     justify-content: space-between;
     align-items:center;
@@ -17,7 +17,11 @@
 .Logo{
     height: 80%;
 }
-@media( max-width:500px){
+h1{
+    color: #fff;
+}
+@media( max-width:800px){
+    h1,
     .DesktopOnly{
         display:none;
     }
@@ -39,7 +43,7 @@
     height: 3px;
     background-color: white;
 }
-@media( min-width:501px){
+@media( min-width:801px){
     .DrawerToggle{
         display:none;
     }

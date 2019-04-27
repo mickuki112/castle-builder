@@ -1,5 +1,6 @@
 import React from 'react';
 import BrickOfType from './Brick/Brick';
+import styles from './Castle.module.css';
 
 const castle =(props)=>{
     /*let transformedComponents = Object.keys(props.components)
@@ -17,10 +18,6 @@ const castle =(props)=>{
             width:'100%',
             //margin:'auto',
         }
-        const styleBuilder={
-            height:'600px',
-            overflow: 'scroll',
-        }
     let transformedComponents = props.components.map((column,i)=>{
             return <div style={styleVerse} key={i}>{column.map((verse,j)=>{
                 return <BrickOfType
@@ -34,7 +31,7 @@ const castle =(props)=>{
     //    transformedComponents=<BrickOfType type='stoneBrick' />;
     //}
     return(
-        <div style={styleBuilder}>
+        <div className={styles.styleBuilder}>
             {transformedComponents}
         </div>
     );

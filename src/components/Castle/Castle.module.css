@@ -1,0 +1,11 @@
+.styleBuilder{
+    height:100%;
+
+}
+@media( max-width:800px){
+    .styleBuilder{
+        overflow: scroll;
+        height:500px;
+        width: 100%;
+    }
+}
