@@ -1,4 +1,5 @@
 import React from 'react';
+import icon from '../../pictures/castle.png';
 
 const styleImg={
     height:'100%',
@@ -12,7 +13,7 @@ const styleDiv={
 }
 const logo=(props)=>(
     <div style={styleDiv}>
-        <img src='#' style={styleImg} alt="CastleBuilder"/>
+        <img src={icon} style={styleImg} alt="CastleBuilder"/>
     </div>
 )
 

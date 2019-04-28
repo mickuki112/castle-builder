@@ -15,6 +15,7 @@ class Builder extends Component {
             height: '100px',
             width: '100px',
             fontSize:'80px',
+            minWidth:'80px',
             lineHeight: '80px',
         }
     }
@@ -66,15 +67,16 @@ class Builder extends Component {
                 sizeBrick=this.state.components[i].length;//make repairs
             }
         });
+        const sizeComponent=(1-sizeBrick*0.03);
         this.setState({
         counterBrick:counterBrick,
         components:updateWall,
         styleComponents:{
-            height: (100*(1-sizeBrick*0.03))+'px',
-            minWidth: (100*(1-sizeBrick*0.03))+'px',
-            width: (100*(1-sizeBrick*0.03))+'px',
-            fontSize:(80*(1-sizeBrick*0.03))+'px',
-            lineHeight: (80*(1-sizeBrick*0.03))+'px'
+            height: (100*sizeComponent)+'px',
+            minWidth: (100*sizeComponent)+'px',
+            width: (100*sizeComponent)+'px',
+            fontSize:(80*sizeComponent)+'px',
+            lineHeight: (80*sizeComponent)+'px'
 
         }})
     }
@@ -108,6 +110,7 @@ class Builder extends Component {
                 styleComponents={this.state.styleComponents}/>
                 <div className={styles.ButtonDiv}>
                     <button className={styles.order}  onClick={this.order}>Order</button>
+                    <p className={styles.copy}>&copy; by Michał Kubiak</p>
                 </div>
             </Aux>
         );
