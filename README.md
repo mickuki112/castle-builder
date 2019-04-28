@@ -6,6 +6,8 @@
 I present another project that I created to learn new technolga. the app consists in building your own castle.
 
 version:1.0.0
-> **Online:** https://stopnie-wojskowe-quiz.netlify.com/
+> **Online:** castle-builder.netlify.com
+
+
 
 
