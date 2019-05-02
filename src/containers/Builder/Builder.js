@@ -4,9 +4,12 @@ import Castle from '../../components/Castle/Castle';
 import Modal from '../../components/UI/Modal/Modal';
 import SummaryBrick from '../../components/Castle/SummaryBrick/SummaryBrick';
 import styles from './Builder.module.css';
+import axios from '../../axios-orders';
 
 class Builder extends Component {
     state={
+        loading: false,
+        error: false,
         purchasing:false,
         components:[["add"]],
         buildMode:'deCenter',
@@ -93,11 +96,35 @@ class Builder extends Component {
     modalClosed=()=>{
         this.setState({purchasing:false})
     }
+    sendDatebase=()=>{
+        alert('You continue!');
+        this.setState( { loading: true } );
+        const order = {
+            components: this.state.components,
+            customer: {
+                name: 'Max Schwarzmüller',
+                address: {
+                    street: 'Teststreet 1',
+                    zipCode: '41351',
+                    country: 'Germany'
+                },
+                email: 'test@test.com'
+            },
+        }
+        axios.post( '/orders.json', order )
+            .then( response => {
+                this.setState( { loading: false, purchasing: false } );
+            } )
+            .catch( error => {
+                this.setState( { loading: false, purchasing: false } );
+            } );
+    }
     render(){
         return(
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.modalClosed}>
                     <SummaryBrick
+                        clicked={this.sendDatebase}
                         counterBrick={this.state.counterBrick}
                     />
                 </Modal>
