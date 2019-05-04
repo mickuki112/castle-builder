@@ -5,7 +5,8 @@ import Modal from '../../components/UI/Modal/Modal';
 import SummaryBrick from '../../components/Castle/SummaryBrick/SummaryBrick';
 import styles from './Builder.module.css';
 import axios from '../../axios-orders';
-
+import Spinner from '../../components/UI/Spinner/Spinner';
+import {Route,Redirect,Switch} from 'react-router-dom';
 class Builder extends Component {
     state={
         loading: false,
@@ -101,8 +102,9 @@ class Builder extends Component {
         this.setState( { loading: true } );
         const order = {
             components: this.state.components,
+            counterBrick:this.state.counterBrick,
             customer: {
-                name: 'Max Schwarzmüller',
+                name: 'Max ',
                 address: {
                     street: 'Teststreet 1',
                     zipCode: '41351',
@@ -120,14 +122,8 @@ class Builder extends Component {
             } );
     }
     render(){
-        return(
+        const builder=(
             <Aux>
-                <Modal show={this.state.purchasing} modalClosed={this.modalClosed}>
-                    <SummaryBrick
-                        clicked={this.sendDatebase}
-                        counterBrick={this.state.counterBrick}
-                    />
-                </Modal>
                 <div className={styles.trapeze}>
                     <button onClick={this.buildMode} className={styles.Button}>build mode: {this.state.buildMode}</button>
                     <p>the number of brick: {this.state.counterBrick}</p>
@@ -141,7 +137,27 @@ class Builder extends Component {
                 </div>
             </Aux>
         );
+        let orderSummary=(
+            <SummaryBrick
+                clicked={this.sendDatebase}
+                counterBrick={this.state.counterBrick}
+            />
+        );
+        if ( this.state.loading ) {
+            orderSummary = <Spinner />;
+        }
+        return(
+            <Aux>
+                <Modal show={this.state.purchasing} modalClosed={this.modalClosed}>
+                    {orderSummary}
+                </Modal>
+                <Switch>
+                    <Route path='/builder' exact  render={()=>builder}/>
+                    <Route path='/authentication' render={() => <h1>Authentication</h1>}/>
+                    <Redirect from="/" to="/builder" />
+                </Switch>
+            </Aux>
+        );
     }
 }
 export default Builder;
-//undefined
