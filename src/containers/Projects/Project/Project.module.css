@@ -1,0 +1,11 @@
+.Brick{
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+}
+.Verse{
+    flex-wrap: wrap;
+    display: flex;
+    justifyContent: center;
+    width:300px;
+}

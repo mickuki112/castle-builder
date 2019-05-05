@@ -7,6 +7,7 @@ import styles from './Builder.module.css';
 import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import {Route,Redirect,Switch} from 'react-router-dom';
+import Projects from '../Projects/Projects';
 class Builder extends Component {
     state={
         loading: false,
@@ -153,8 +154,8 @@ class Builder extends Component {
                 </Modal>
                 <Switch>
                     <Route path='/builder' exact  render={()=>builder}/>
-                    <Route path='/authentication' render={() => <h1>Authentication</h1>}/>
-                    <Redirect from="/" to="/builder" />
+                    <Route path='/projects' component={Projects}/>
+                    <Redirect from="/" to="/builder"  />
                 </Switch>
             </Aux>
         );
