@@ -106,12 +106,8 @@ class Builder extends Component {
             counterBrick:this.state.counterBrick,
             customer: {
                 name: 'Max ',
-                address: {
-                    street: 'Teststreet 1',
-                    zipCode: '41351',
-                    country: 'Germany'
-                },
-                email: 'test@test.com'
+                title:'zamek2',
+                email: 'test@test.com',
             },
         }
         axios.post( '/orders.json', order )
@@ -133,7 +129,7 @@ class Builder extends Component {
                 components={this.state.components}
                 styleComponents={this.state.styleComponents}/>
                 <div className={styles.ButtonDiv}>
-                    <button className={styles.order}  onClick={this.order}>Order</button>
+                    <button className={styles.order}  onClick={this.order}>Publish</button>
                     <p className={styles.copy}>&copy; by Michał Kubiak</p>
                 </div>
             </Aux>
@@ -142,7 +138,14 @@ class Builder extends Component {
             <SummaryBrick
                 clicked={this.sendDatebase}
                 counterBrick={this.state.counterBrick}
-            />
+            >
+                <form>
+                    <input className={styles.Input} type="text" name="title" placeholder="Title of the castle" />
+                    <input className={styles.Input} type="text" name="Name" placeholder="Your Name" />
+                    <input className={styles.Input} type="email" name="email" placeholder="Your Email" />
+                </form>
+            </SummaryBrick>
+
         );
         if ( this.state.loading ) {
             orderSummary = <Spinner />;

@@ -1,13 +1,14 @@
 import React from 'react';
-import Aux from '../../../hoc/Aux';
+import styles from './SummaryBrick.module.css';
 
 const summaryBrick=(props)=>{
 
     return(
-        <Aux>
-            <p>{props.counterBrick}</p>
-            <button onClick={props.clicked}> </button>
-        </Aux>
+        <div className={styles.Container}>
+        Number of bricks: {props.counterBrick}
+            {props.children}
+            <button className={styles.Button} onClick={props.clicked}>Publish</button>
+        </div>
     );
 }
 

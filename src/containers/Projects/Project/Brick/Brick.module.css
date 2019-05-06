@@ -1,6 +1,6 @@
 .add{
-    height: 80%;
-    width: 80%;
+    height: 30px;
+    width: 30px;
     margin:auto;
     border:dashed 2px green;
     border-radius: 10px;
@@ -12,8 +12,4 @@
     background-image: url("./pictures/stoneBrick0.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}
-.StyleComponents{
-    height: 10%;
-    width: 10%;
 }

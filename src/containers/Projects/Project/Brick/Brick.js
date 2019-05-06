@@ -5,8 +5,9 @@ import styles from'./Brick.module.css';
 
 class BrickOfType extends Component {
     styleComponents={
-        width:'10%',
-        hight:'10%',
+        width:'30px',
+        height:'30px',
+        minWidth:'30px',
     }
     render(){
         let typeBrick =null;
@@ -20,12 +21,12 @@ class BrickOfType extends Component {
                 break;
             case('add'):
                 typeBrick=(<div
-                    style={this.props.styleComponents}>
-                        <div className={styles.add}>+</div>
+                    style={this.styleComponents}>
+
                     </div>);
                 break;
             case('none'):
-                typeBrick=(<div className={styles.add}></div>);
+                typeBrick=(<div className={styles.styleComponents}></div>);
                 break;
 
             default:

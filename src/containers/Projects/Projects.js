@@ -2,15 +2,17 @@ import React,{Component} from 'react';
 import styles from './Projects.module.css';
 import axios from '../../axios-orders.js';
 import Project from './Project/Project';
+import Spinner from '../../components/UI/Spinner/Spinner';
+
 class Projects extends Component{
-    
+
     state = {
         project: [],
         loading: true
     }
 
     componentDidMount() {
-        
+
         axios.get('/orders.json')
             .then(res => {
                 const fetchedOrders = [];
@@ -27,21 +29,28 @@ class Projects extends Component{
             });
     }
     render(){
-        console.log(this.state.project);
-        
+        let form=null
+        if ( this.state.loading ) {
+        form = <Spinner />;
+        }
+
         return(
         <div className={styles.Container}>
+            {form}
             {this.state.project.map(project=>(
                 <Project
                 key={project.id}
                 castle={project.components}
                 name={project.customer.name}
+                counterBrick={project.counterBrick}
+                title={project.customer.title}
+                email={project.customer.email}
                 //
                 />
             ))}
-        </div>    
+        </div>
         );
-        
+
     }
 }
 

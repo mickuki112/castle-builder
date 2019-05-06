@@ -1,0 +1,29 @@
+.Window{
+    border: 2px solid #000;
+    border-radius: 20px;
+    margin: auto;
+    width: 48%;
+    margin-top: 20px;
+}
+.Developing{
+    border-top: 2px solid #000;
+}
+.Developing:hover{
+    background-color: #eee;
+}
+.Castle{
+    padding: auto;
+    width: 100%;
+    overflow: auto;
+
+}
+.P{
+    text-align: left;
+    margin: 1px;
+    margin-left: 10px
+}
+@media( max-width:800px){
+    .Window{
+        width: 90%;
+    }
+}
