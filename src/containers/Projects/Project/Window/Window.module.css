@@ -22,6 +22,9 @@
     margin: 1px;
     margin-left: 10px
 }
+.T{
+    
+}
 @media( max-width:800px){
     .Window{
         width: 90%;

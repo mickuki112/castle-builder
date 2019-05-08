@@ -8,6 +8,8 @@ import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import {Route,Redirect,Switch} from 'react-router-dom';
 import Projects from '../Projects/Projects';
+
+
 class Builder extends Component {
     state={
         loading: false,
@@ -23,6 +25,11 @@ class Builder extends Component {
             minWidth:'80px',
             lineHeight: '80px',
         }
+    }
+    customer={
+        name: 'anonym',
+        title:'anonym',
+        email: 'anonym',
     }
     addWall=(type,coOrdinates)=>{
         let updateWall=this.state.components;
@@ -99,15 +106,14 @@ class Builder extends Component {
         this.setState({purchasing:false})
     }
     sendDatebase=()=>{
-        alert('You continue!');
         this.setState( { loading: true } );
         const order = {
             components: this.state.components,
             counterBrick:this.state.counterBrick,
             customer: {
-                name: 'Max ',
-                title:'zamek2',
-                email: 'test@test.com',
+                name: this.customer.name,
+                title:this.customer.title,
+                email: this.customer.email,
             },
         }
         axios.post( '/orders.json', order )
@@ -117,6 +123,9 @@ class Builder extends Component {
             .catch( error => {
                 this.setState( { loading: false, purchasing: false } );
             } );
+    }
+    inputPublish=(event)=>{
+
     }
     render(){
         const builder=(
@@ -140,9 +149,9 @@ class Builder extends Component {
                 counterBrick={this.state.counterBrick}
             >
                 <form>
-                    <input className={styles.Input} type="text" name="title" placeholder="Title of the castle" />
-                    <input className={styles.Input} type="text" name="Name" placeholder="Your Name" />
-                    <input className={styles.Input} type="email" name="email" placeholder="Your Email" />
+                    <input className={styles.Input} onChange={(event) => this.customer.name=event.target.value} type="text" name="title" placeholder="Title of the castle" />
+                    <input className={styles.Input} onChange={(event) => this.customer.title=event.target.value} type="text" name="Name" placeholder="Your Name" />
+                    <input className={styles.Input} onChange={(event) => this.customer.email=event.target.value} type="email" name="email" placeholder="Your Email" />
                 </form>
             </SummaryBrick>
 
