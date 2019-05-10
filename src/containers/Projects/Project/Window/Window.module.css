@@ -1,15 +1,20 @@
 .Window{
     border: 2px solid #000;
+    border-bottom: 0px ;
     border-radius: 20px;
     margin: auto;
     width: 48%;
     margin-top: 20px;
 }
 .Developing{
-    border-top: 2px solid #000;
+    border: 2px solid #000;
+    background-color: #4CAF50;
+    border-radius: 20px;
+    cursor: pointer;
+
 }
 .Developing:hover{
-    background-color: #eee;
+    background-color: #45a049;
 }
 .Castle{
     padding: auto;
@@ -23,7 +28,7 @@
     margin-left: 10px
 }
 .T{
-    
+
 }
 @media( max-width:800px){
     .Window{

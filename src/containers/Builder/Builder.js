@@ -8,7 +8,7 @@ import axios from '../../axios-orders';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import {Route,Redirect,Switch} from 'react-router-dom';
 import Projects from '../Projects/Projects';
-
+import Abaut from '../../components/Abaut/Abaut';
 
 class Builder extends Component {
     state={
@@ -126,7 +126,7 @@ class Builder extends Component {
     }
     inputPublish=(event)=>{
 
-    }
+}
     render(){
         const builder=(
             <Aux>
@@ -139,7 +139,7 @@ class Builder extends Component {
                 styleComponents={this.state.styleComponents}/>
                 <div className={styles.ButtonDiv}>
                     <button className={styles.order}  onClick={this.order}>Publish</button>
-                    <p className={styles.copy}>&copy; by Michał Kubiak</p>
+                <p className={styles.copy}>&copy; by Michał Kubiak</p>
                 </div>
             </Aux>
         );
@@ -149,8 +149,8 @@ class Builder extends Component {
                 counterBrick={this.state.counterBrick}
             >
                 <form>
-                    <input className={styles.Input} onChange={(event) => this.customer.name=event.target.value} type="text" name="title" placeholder="Title of the castle" />
-                    <input className={styles.Input} onChange={(event) => this.customer.title=event.target.value} type="text" name="Name" placeholder="Your Name" />
+                    <input className={styles.Input} onChange={(event) => this.customer.title=event.target.value} type="text" name="title" placeholder="Title of the castle" />
+                    <input className={styles.Input} onChange={(event) => this.customer.name=event.target.value} type="text" name="Name" placeholder="Your Name" />
                     <input className={styles.Input} onChange={(event) => this.customer.email=event.target.value} type="email" name="email" placeholder="Your Email" />
                 </form>
             </SummaryBrick>
@@ -166,6 +166,7 @@ class Builder extends Component {
                 </Modal>
                 <Switch>
                     <Route path='/builder' exact  render={()=>builder}/>
+                    <Route path='/abaut' exact  component={Abaut}/>
                     <Route path='/projects' component={Projects}/>
                     <Redirect from="/" to="/builder"  />
                 </Switch>

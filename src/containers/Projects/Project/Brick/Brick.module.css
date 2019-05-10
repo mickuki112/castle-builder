@@ -9,7 +9,7 @@
 }
 
 .typeBrick{
-    background-image: url("./pictures/stoneBrick0.jpg");
+    background-image: url("../../../../components/Castle/Brick/pictures/stoneBrick0.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
